@@ -1,0 +1,208 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}{\f2\fnil\fcharset2 Symbol;}}
+{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\qc\ul\b\f0\fs32\lang9 Java Code Conventions\par
+\par
+
+\pard\sa200\sl276\slmult1\ulnone 1. \fs28 Naming Conventions\par
+
+\pard\sa200\sl276\slmult1\qj\b0 Naming conventions make programs more understandable by making them easier to read.They can also give information about the function of the identifier\f1\emdash for example, whether it\rquote s aconstant, package, or class\emdash which can be helpful in understanding the code.\par
+\f0\par
+
+\pard\sa200\sl276\slmult1\b 1.1 Classes and Interfaces :\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\qj\b\fs32  \b0\fs28 Class names should be nouns, in mixed case with the first letter of each  internal word capitalised. Interfaces name should also be capitalised just like class names.\par
+{\pntext\f2\'B7\tab}Use whole words and must avoid acronyms and abbreviations.\par
+
+\pard\sa200\sl276\slmult1\b Examples:\b0\par
+interface  Bicycle\par
+class MountainBike implements Bicyle\par
+\par
+interface Sport\par
+class Football implements Sport\par
+\par
+\b 1.2 Methods :\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\qj Methods should be verbs, in mixed case with the first letter lowercase and with the first letter of each internal word capitalised.\par
+
+\pard\sa200\sl276\slmult1\b Examples:\b0\par
+void changeGear(int newValue);\par
+void speedUp(int increment);\par
+void applyBrakes(int decrement);\par
+\par
+\b 1.3 Variables : \b0 Variable names should be short yet meaningful.\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\qj Should not start with underscore(\lquote _\rquote ) or dollar sign \lquote $\rquote  characters.\par
+{\pntext\f2\'B7\tab}Should be mnemonic i.e, designed to indicate to the casual observer the intent of its use.\par
+{\pntext\f2\'B7\tab}One-character variable names should be avoided except for temporary variables.\par
+{\pntext\f2\'B7\tab}Common names for temporary variables are i, j, k, m, and n for integers; c, d, and e for characters.\par
+
+\pard\sa200\sl276\slmult1\b Examples:\b0\par
+    // variables for MountainBike class\par
+    int speed = 0;\par
+    int gear = 1;\par
+\par
+\b 1.4 Constant variables:\b0\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\qj Should be all uppercase with words separated by underscores (\ldblquote _\rdblquote ).\par
+{\pntext\f2\'B7\tab}There are various constants used in predefined classes like Float, Long, String etc.\par
+
+\pard\sa200\sl276\slmult1\b Examples:\b0\par
+static final int MIN_WIDTH = 4;\line\par
+\b 1.5 Packages:\par
+
+\pard{\pntext\f2\'B7\tab}{\*\pn\pnlvlblt\pnf2\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\qj\b0 The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, like com, edu, gov, mil, net, org.\par
+{\pntext\f2\'B7\tab}Subsequent components of the package name vary according to an organisation\rquote s own internal naming conventions.\par
+
+\pard\sa200\sl276\slmult1\qj\par
+
+\pard\sa200\sl276\slmult1\b Examples:\b0\par
+com.sun.eng\par
+com.apple.quicktime.App\par
+\par
+// java.lang packet in JDK\par
+java.lang\par
+\par
+\b\fs32 2. Java comment conventions\b0\fs28\par
+
+\pard\sa200\sl276\slmult1\qj In a program, comments take part in making the program become more human readable by placing the detail of code involved and proper use of comments makes maintenance easier and finding bugs easily. Comments are ignored by the compiler while compiling a code. \par
+\i In Java there are three types of comments:\par
+
+\pard 
+{\pntext\f1 1.\tab}{\*\pn\pnlvlbody\pnf1\pnindent0\pnstart1\pndec{\pntxta.}}
+\fi-360\li720\sa200\sl276\slmult1\qj\i0 Single \f1\endash  line comments.\par
+{\pntext\f1 2.\tab}Multi \endash  line comments.\par
+{\pntext\f1 3.\tab}Documentation comments\f0\par
+
+\pard\sa200\sl276\slmult1\qj\b\lang1033 1. \f1\lang9 Single-line Comments\b0\par
+programmer uses mostly single-line comments for describing the code functionality. Its the most easiest typed comments.\par
+Syntax:\par
+//Comments here( Text in this line only is considered as comment )\par
+\par
+\b\f0\lang1033 2. \f1\lang9 Multi-line Comments\b0\par
+To describe a full method in a code or a complex snippet single line comments can be tedious to write, since we have to give \lquote //\rquote  at every line. So to overcome this multi line comments can be used.\par
+Syntax:\par
+/*Comment starts\par
+continues\par
+continues\par
+.\par
+.\par
+.\par
+Commnent ends*/\par
+\par
+We can also accomplish single line comments by using the above syntax as shown below:\par
+/*Comment line 1*/\par
+\par
+\b\f0 3. Documentation Comments\b0\par
+This type of comments are used generally when writing code for a project/software package, since it helps to generate a documentation page for reference, which can be used for getting information about methods present, its parameters, etc.\par
+\par
+Syntax:\par
+\par
+/**Comment start\par
+*\par
+*tags are used in order to specify a parameter\par
+*or method or heading\par
+*HTML tags can also be used \par
+*such as <h1>\par
+*\par
+*comment ends*/\par
+Java programs can have two kinds of comments: implementation comments and documentation comments. Implementation comments are those found in C++, which are delimited by /*...*/, and //. Documentation comments (known as \ldblquote doc comments\rdblquote ) are Java-only, and are delimited by /**...*/. Doc comments can be extracted to HTML files using the javadoc tool.\par
+Implementation comments are mean for commenting out code or for comments about the particular implementation. Doc comments are meant to describe the specification of the code, from an implementation-free perspective. to be read by developers who might not necessarily have the source code at hand.\par
+Comments should be used to give overviews of code and provide additional information that is not readily available in the code itself. Comments should contain only information that is relevant to reading and understanding the program.\par
+\par
+\b 4. Statements\b0\par
+\b 4.1 Simple Statements\b0\par
+Each line should contain at most one statement. \par
+Example:\par
+argv++; argc--; // AVOID!\par
+\par
+Do not use the comma operator to group multiple statements unless it is for an obvious reason.\par
+\b 4.2 Compound Statements\b0\par
+Compound statements are statements that contain lists of statements enclosed in braces\par
+\ldblquote\{ statements \}\rdblquote . See the following sections for examples.\par
+\f1\bullet  The enclosed statements should be indented one more level than the compound statement.\par
+\bullet  The opening brace should be at the end of the line that begins the compound statement; the\par
+closing brace should begin a line and be indented to the beginning of the compound\par
+statement.\par
+\bullet  Braces are used around all statements, even singletons, when they are part of a control\par
+structure, such as a if-else or for statement. This makes it easier to add statements\par
+without accidentally introducing bugs due to forgetting to add braces.\par
+\b\f0\lang1033 4\f1\lang9 .3 return Statements\b0\par
+A return statement with a value should not use parentheses unless they make the return value\par
+more obvious in some way. Example:\par
+return;\par
+return myDisk.size();\par
+return (size ? size : defaultSize);\par
+ \b\f0\lang1033 4\f1\lang9 .4 if, if-else, if-else-if-else Statements\b0\par
+The if-else class of statements should have the following form:\par
+if (condition) \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else \{\par
+statements;\par
+\}\par
+if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\} else if (condition) \{\par
+statements;\par
+\}\par
+Note: if statements always use braces \{\}. Avoid the following error-prone form:\par
+if (condition) //AVOID! THIS OMITS THE BRACES \{\}!\par
+statement;\par
+\b  \f0\lang1033 4\f1\lang9 .5 for Statements\b0\par
+A for statement should have the following form:\par
+for (initialization; condition; update) \{\par
+statements;\par
+\}\par
+An empty for statement (one in which all the work is done in the initialization, condition, and\par
+update clauses) should have the following form:\par
+for (initialization; condition; update);\par
+When using the comma operator in the initialization or update clause of a for statement, avoid\par
+the complexity of using more than three variables. If needed, use separate statements before\par
+the for loop (for the initialization clause) or at the end of the loop (for the update clause).\par
+\b  \f0\lang1033 4\f1\lang9 .6 while Statements\b0\par
+A while statement should have the following form:\par
+while (condition) \{\par
+statements;\par
+\}\par
+An empty while statement should have the following form:\par
+while (condition);\par
+\b\f0\lang1033 4\f1\lang9 .7 do-while Statements\b0\par
+A do-while statement should have the following form:\par
+do \{\par
+statements;\par
+\} while (condition);\par
+ \b\f0\lang1033 4\f1\lang9 .8 switch Statements\b0\par
+A switch statement should have the following form:\par
+switch (condition) \{\par
+case ABC:\par
+statements;\par
+ /* falls through */\par
+case DEF:\par
+statements;\par
+ break;\par
+case XYZ:\par
+statements;\par
+ break;\par
+default:\par
+statements;\par
+ break;\par
+\}\par
+Every time a case falls through (doesn\rquote t include a break statement), add a comment where the\par
+break statement would normally be. This is shown in the preceding code example with the\par
+/* falls through */ comment.\par
+Every switch statement should include a default case. The break in the default case is\par
+redundant, but it prevents a fall-through error if later another case is added.\par
+ \b\f0\lang1033 4\f1\lang9 .9 try-catch Statements\b0\par
+A try-catch statement should have the following format:\par
+try \{\par
+statements;\par
+\} catch (ExceptionClass e) \{\par
+statements;\par
+\}\f0  \par
+\fs22\par
+}
+ 
