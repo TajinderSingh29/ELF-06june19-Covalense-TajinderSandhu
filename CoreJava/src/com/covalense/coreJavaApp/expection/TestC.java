@@ -1,0 +1,14 @@
+package com.covalense.corejavaapp.expection;
+
+public class TestC {
+	public static void main(String[] args) {
+		System.out.println("Main Started");
+
+		Paytm p = new Paytm();
+		p.getTicket();
+
+		System.out.println("Main Started");
+
+	}
+
+}
