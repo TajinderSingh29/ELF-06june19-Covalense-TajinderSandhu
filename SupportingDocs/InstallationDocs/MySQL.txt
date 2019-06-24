@@ -1,0 +1,912 @@
+****************Create Database*************************
+mysql> create database covalense;
+
+
+****************Show  Database*************************
+mysql> show database;
+
+****************Use Database*************************
+mysql> use covalense;
+
+****************Create Table*************************
+mysql> create table Employee(id int,FristName varchar(120) not null,LastName varchar(102) ,salary decimal(15,3),jobtype varchar(250) not null,deptno int,emailid varchar(100),primary key(id));
+Query OK, 0 rows affected (0.66 sec)
+
+****************See the Sturture Table*************************
+
+mysql> desc employee;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| id        | int(11)       | NO   | PRI | NULL    |       |
+| FristName | varchar(120)  | NO   |     | NULL    |       |
+| LastName  | varchar(102)  | YES  |     | NULL    |       |
+| salary    | decimal(15,3) | YES  |     | NULL    |       |
+| jobtype   | varchar(250)  | NO   |     | NULL    |       |
+| deptno    | int(11)       | YES  |     | NULL    |       |
+| emailid   | varchar(100)  | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+7 rows in set (0.08 sec)
+
+****************Insert data into Table*************************
+mysql> insert into employee values(2,'Sonu','Saini',20000,'salesman',2,'sonusaini@gmail.com');
+Query OK, 1 row affected (0.16 sec)
+
+
+
+mysql> select * from employee;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
++----+-----------+----------+------------+----------+--------+-------------------------+
+6 rows in set (0.09 sec)
+
+
+mysql> select id,fristname,lastname,salary from employee;
++----+-----------+----------+------------+
+| id | fristname | lastname | salary     |
++----+-----------+----------+------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 |
+|  2 | Sonu      | Saini    |  20000.000 |
+|  3 | trisha    | Verma    | 200000.000 |
+|  4 | Aruna     | kapoor   |  50000.000 |
+|  5 | Ish       | kapoor   |  50000.000 |
+|  6 | nitish    | kaushal  | 500000.000 |
++----+-----------+----------+------------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+mysql> select jobtype,deptno,emailid from employee;
++----------+--------+-------------------------+
+| jobtype  | deptno | emailid                 |
++----------+--------+-------------------------+
+| SD       |      1 | tajindersingh@gmail.com |
+| salesman |      2 | sonusaini@gmail.com     |
+| SD       |      1 | trishaverma@gmail.com   |
+| manager  |      3 | arunakapoor@gmail.com   |
+| AS       |      4 | ishkapoor@gmail.com     |
+| manager  |      3 | nitishkaushal@gmail.com |
++----------+--------+-------------------------+
+6 rows in set (0.00 sec)
+
+
+mysql> select * from employee where id=1;
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
++----+-----------+----------+------------+---------+--------+-------------------------+
+1 row in set (0.13 sec)
+
+
+
+
+
+
+****************Selection result*************************
+
+
+mysql> select fristname,salary,jobtype,deptno from employee where id=1;
++-----------+------------+---------+--------+
+| fristname | salary     | jobtype | deptno |
++-----------+------------+---------+--------+
+| Tajinder  | 200000.000 | SD      |      1 |
++-----------+------------+---------+--------+
+1 row in set (0.00 sec)
+
+
+****************Using where clause*************************
+
+mysql> select * from employee where fristname='tajinder';
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
++----+-----------+----------+------------+---------+--------+-------------------------+
+1 row in set (0.08 sec)
+
+****************Using Alis*************************
+
+mysql> select salary*0.5 as AfterBonus from employee;
++-------------+
+| AfterBonus  |
++-------------+
+| 100000.0000 |
+|  10000.0000 |
+| 100000.0000 |
+|  25000.0000 |
+|  25000.0000 |
+| 250000.0000 |
++-------------+
+6 rows in set (0.08 sec)
+
+
+mysql> select * from employee as emp;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
++----+-----------+----------+------------+----------+--------+-------------------------+
+6 rows in set (0.00 sec)
+
+
+
+mysql> select salary s from employee;
++------------+
+| s          |
++------------+
+| 200000.000 |
+|  20000.000 |
+| 200000.000 |
+|  50000.000 |
+|  50000.000 |
+| 500000.000 |
++------------+
+6 rows in set (0.00 sec)'
+
+****************Using DISTINCT *************************
+
+mysql> select DISTINCT deptno from employee;
++--------+
+| deptno |
++--------+
+|      1 |
+|      2 |
+|      3 |
+|      4 |
++--------+
+4 rows in set (0.08 sec)
+
+
+
+mysql> select DISTINCT deptno,fristname from employee;
++--------+-----------+
+| deptno | fristname |
++--------+-----------+
+|      1 | Tajinder  |
+|      2 | Sonu      |
+|      1 | trisha    |
+|      3 | Aruna     |
+|      4 | Ish       |
+|      3 | nitish    |
++--------+-----------+
+6 rows in set (0.00 sec)
+
+
+mysql> select salary+1000 increamentSalary from employee;
++------------------+
+| increamentSalary |
++------------------+
+|       201000.000 |
+|        21000.000 |
+|       201000.000 |
+|        51000.000 |
+|        51000.000 |
+|       501000.000 |
+|        51000.000 |
++------------------+
+7 rows in set (0.06 sec)
+
+****************Using + Operators*************************
+
+mysql> select id,fristname,salary,salary+1000 increamentSalary from employee;
++----+-----------+------------+------------------+
+| id | fristname | salary     | increamentSalary |
++----+-----------+------------+------------------+
+|  1 | Tajinder  | 200000.000 |       201000.000 |
+|  2 | Sonu      |  20000.000 |        21000.000 |
+|  3 | trisha    | 200000.000 |       201000.000 |
+|  4 | Aruna     |  50000.000 |        51000.000 |
+|  5 | Ish       |  50000.000 |        51000.000 |
+|  6 | nitish    | 500000.000 |       501000.000 |
+|  7 | Ish       |  50000.000 |        51000.000 |
++----+-----------+------------+------------------+
+7 rows in set (0.00 sec)
+
+****************Using - Operators*************************
+
+mysql> select salary-1000 DecreamentSalary from employee;
++------------------+
+| DecreamentSalary |
++------------------+
+|       199000.000 |
+|        19000.000 |
+|       199000.000 |
+|        49000.000 |
+|        49000.000 |
+|       499000.000 |
+|        49000.000 |
++------------------+
+
+
+****************Using * Operators*************************
+
+mysql> select salary*0.5 AfterBonusSalary from employee;
++------------------+
+| AfterBonusSalary |
++------------------+
+|      100000.0000 |
+|       10000.0000 |
+|      100000.0000 |
+|       25000.0000 |
+|       25000.0000 |
+|      250000.0000 |
+|       25000.0000 |
++------------------+
+7 rows in set (0.00 sec)
+
+
+****************Using / Operators*************************
+
+mysql> select salary/0.5 AfterDectectSalary from employee;
++-----------------+
+| DectectSalary   |
++-----------------+
+|  400000.0000000 |
+|   40000.0000000 |
+|  400000.0000000 |
+|  100000.0000000 |
+|  100000.0000000 |
+| 1000000.0000000 |
+|  100000.0000000 |
++-----------------+
+7 rows in set (0.00 sec)
+
+****************Using > Operators*************************
+
+mysql> select * from employee where salary>10000;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+7 rows in set (0.00 sec)
+
+
+****************Using < Operators*************************
+
+mysql> select * from employee where salary<100000;
++----+-----------+----------+-----------+----------+--------+-----------------------+
+| id | FristName | LastName | salary    | jobtype  | deptno | emailid               |
++----+-----------+----------+-----------+----------+--------+-----------------------+
+|  2 | Sonu      | Saini    | 20000.000 | salesman |      2 | sonusaini@gmail.com   |
+|  4 | Aruna     | kapoor   | 50000.000 | manager  |      3 | arunakapoor@gmail.com |
+|  5 | Ish       | kapoor   | 50000.000 | AS       |      4 | ishkapoor@gmail.com   |
+|  7 | Ish       | kapoor   | 50000.000 | AS       |      4 | ishkapoor@gmail.com   |
++----+-----------+----------+-----------+----------+--------+-----------------------+
+4 rows in set (0.00 sec)
+
+
+****************Using = Operators*************************
+
+mysql> select * from employee where salary=200000;
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com   |
++----+-----------+----------+------------+---------+--------+-------------------------+
+2 rows in set (0.00 sec)
+
+
+
+****************Using != Operators*************************
+
+mysql> select * from employee where salary!=200000;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+5 rows in set (0.00 sec)
+
+****************Using <> Operators*************************
+mysql> select * from employee where salary<>200000;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+5 rows in set (0.00 sec)
+
+****************Using >= Operators*************************
+mysql> select * from employee where salary>=200000;
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com   |
+|  6 | nitish    | kaushal  | 500000.000 | manager |      3 | nitishkaushal@gmail.com |
++----+-----------+----------+------------+---------+--------+-------------------------+
+3 rows in set (0.00 sec)
+
+****************Using <= Operators*************************
+
+mysql> select * from employee where salary<=200000;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+6 rows in set (0.00 sec)
+
+****************Using <=> Operators*************************
+mysql> select * from employee where deptno<=>salary;
++----+-----------+----------+--------+----------+--------+---------------------+
+| id | FristName | LastName | salary | jobtype  | deptno | emailid             |
++----+-----------+----------+--------+----------+--------+---------------------+
+| 10 | Sonu      | Saini    |   NULL | salesman |   NULL | sonusaini@gmail.com |
+| 11 | Sonu      | Saini    |   NULL | salesman |   NULL | sonusaini@gmail.com |
++----+-----------+----------+--------+----------+--------+---------------------+
+2 rows in set (0.00 sec)
+
+****************Using and Operators*************************
+
+mysql> select * from employee where salary>10000 and jobtype='sd';
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com   |
++----+-----------+----------+------------+---------+--------+-------------------------+
+2 rows in set (0.13 sec)
+
+****************Using or Operators*************************
+
+mysql> select * from employee where salary>10000 or jobtype='manager';
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager  |   NULL | nitishkaushal@gmail.com |
++----+-----------+----------+------------+----------+--------+-------------------------+
+9 rows in set (0.00 sec)
+
+****************Using Not Operators*************************
+
+mysql> select * from employee where not deptno=1;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+5 rows in set (0.00 sec)
+
+****************Using IN Operators*************************
+
+mysql> select * from employee where jobtype in('AS','SD');
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS      |      4 | ishkapoor@gmail.com     |
+|  7 | Ish       | kapoor   |  50000.000 | AS      |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+---------+--------+-------------------------+
+4 rows in set (0.06 sec)
+
+
+
+mysql> select * from employee where deptno in(2,1);
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
++----+-----------+----------+------------+----------+--------+-------------------------+
+3 rows in set (0.00 sec)
+
+****************Using between  Operators*************************
+
+mysql> select * from employee where salary between  10000 and 200000;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+7 rows in set (0.05 sec)
+
+****************Using Not In Operators*************************
+
+mysql> select * from employee where deptno not IN(1,2);
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  4 | Aruna     | kapoor   |  50000.000 | manager |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS      |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS      |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+---------+--------+-------------------------+
+4 rows in set (0.00 sec)
+
+
+****************Using not between  Operators*************************
+
+mysql> select * from employee where salary not between 10000 and 200000;
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  6 | nitish    | kaushal  | 500000.000 | manager |      3 | nitishkaushal@gmail.com |
+|  9 | nitish    | kaushal  | 500000.000 | manager |   NULL | nitishkaushal@gmail.com |
++----+-----------+----------+------------+---------+--------+-------------------------+
+2 rows in set (0.00 sec)
+
+****************Using IS Operators*************************
+
+mysql> select * from employee where deptno is null;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager  |   NULL | nitishkaushal@gmail.com |
+| 10 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
+| 11 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+4 rows in set (0.06 sec)
+
+
+mysql> select * from employee where deptno is not null;
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
++----+-----------+----------+------------+----------+--------+-------------------------+
+7 rows in set (0.00 sec)
+
+
+****************Using Like Operators*************************
+
+mysql> select * from employee where fristname like 't%';
++----+-----------+----------+------------+---------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid                 |
++----+-----------+----------+------------+---------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD      |      1 | tajindersingh@gmail.com |
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com   |
++----+-----------+----------+------------+---------+--------+-------------------------+
+2 rows in set (0.08 sec)
+
+
+mysql> select * from employee where fristname like '%a';
++----+-----------+----------+------------+---------+--------+-----------------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid               |
++----+-----------+----------+------------+---------+--------+-----------------------+
+|  3 | trisha    | Verma    | 200000.000 | SD      |      1 | trishaverma@gmail.com |
+|  4 | Aruna     | kapoor   |  50000.000 | manager |      3 | arunakapoor@gmail.com |
++----+-----------+----------+------------+---------+--------+-----------------------+
+2 rows in set (0.00 sec)
+
+
+mysql> select * from employee where fristname like '%a%a';
++----+-----------+----------+-----------+---------+--------+-----------------------+
+| id | FristName | LastName | salary    | jobtype | deptno | emailid               |
++----+-----------+----------+-----------+---------+--------+-----------------------+
+|  4 | Aruna     | kapoor   | 50000.000 | manager |      3 | arunakapoor@gmail.com |
++----+-----------+----------+-----------+---------+--------+-----------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select * from employee where fristname like '%a%n';
++----+-----------+----------+------------+---------+--------+----------------+
+| id | FristName | LastName | salary     | jobtype | deptno | emailid        |
++----+-----------+----------+------------+---------+--------+----------------+
+| 12 | aman      | kaur     | 200000.000 | SD      |      5 | aman@gmail.com |
++----+-----------+----------+------------+---------+--------+----------------+
+1 row in set (0.00 sec)
+
+
+
+mysql>  select * from employee where fristname like 'a%' or fristname like 's%';
++----+-----------+----------+------------+----------+--------+-----------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid               |
++----+-----------+----------+------------+----------+--------+-----------------------+
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com |
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com   |
+| 10 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com   |
+| 11 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com   |
+| 12 | aman      | kaur     | 200000.000 | SD       |      5 | aman@gmail.com        |
++----+-----------+----------+------------+----------+--------+-----------------------+
+6 rows in set (0.00 sec)
+
+
+mysql>  select * from employee where fristname like '___%';
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD       |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD       |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager  |   NULL | nitishkaushal@gmail.com |
+| 10 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
+| 11 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
+| 12 | aman      | kaur     | 200000.000 | SD       |      5 | aman@gmail.com          |
++----+-----------+----------+------------+----------+--------+-------------------------+
+12 rows in set (0.00 sec)
+
+
+mysql>  select * from employee where fristname not like 't%';
++----+-----------+----------+------------+----------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype  | deptno | emailid                 |
++----+-----------+----------+------------+----------+--------+-------------------------+
+|  2 | Sonu      | Saini    |  20000.000 | salesman |      2 | sonusaini@gmail.com     |
+|  4 | Aruna     | kapoor   |  50000.000 | manager  |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager  |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS       |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager  |   NULL | nitishkaushal@gmail.com |
+| 10 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
+| 11 | Sonu      | Saini    |       NULL | salesman |   NULL | sonusaini@gmail.com     |
+| 12 | aman      | kaur     | 200000.000 | SD       |      5 | aman@gmail.com          |
++----+-----------+----------+------------+----------+--------+-------------------------+
+10 rows in set (0.00 sec)
+
+****************Using Aggregate function*************************
+
+
+****************Using avg()function*************************
+
+mysql>  select avg(salary) AverageSalary from employee;
++----------------+
+| AverageSalary  |
++----------------+
+| 179000.0000000 |
++----------------+
+1 row in set (0.00 sec)
+
+
+****************Using max() function*************************
+
+mysql>  select id,fristname,max(salary) MaximumSalary from employee;
++----+-----------+---------------+
+| id | fristname | MaximumSalary |
++----+-----------+---------------+
+|  1 | Tajinder  |    500000.000 |
++----+-----------+---------------+
+1 row in set (0.00 sec)
+
+
+****************Using min()function*************************
+
+mysql>  select id,fristname,min(salary) MaximumSalary from employee;
++----+-----------+---------------+
+| id | fristname | MaximumSalary |
++----+-----------+---------------+
+|  1 | aman      |     20000.000 |
++----+-----------+---------------+
+1 row in set (0.00 sec)
+
+
+****************Using sum() function*************************
+
+mysql>  select sum(salary) TotalSalary from employee;
++-------------+
+| TotalSalary |
++-------------+
+| 1790000.000 |
++-------------+
+1 row in set (0.05 sec)
+
+
+mysql>  select count(*) TotalNUmberRecord from employee;
++-------------------+
+| TotalNUmberRecord |
++-------------------+
+|                12 |
++-------------------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql>  select count(*),sum(salary) from employee where salary<200000;
++----------+-------------+
+| count(*) | sum(salary) |
++----------+-------------+
+|        5 |  190000.000 |
++----------+-------------+
+1 row in set (0.00 sec)
+
+****************Using Scalar function*************************
+
+****************Using upper() function*************************
+
+select upper(fristname) from employee;
++------------------+
+| upper(fristname) |
++------------------+
+| TAJINDER         |
+| SONU             |
+| TRISHA           |
+| ARUNA            |
+| ISH              |
+| NITISH           |
+| ISH              |
+| SONU             |
+| NITISH           |
+| SONU             |
+| SONU             |
+| AMAN             |
++------------------+
+
+
+
+****************Using lower() function*************************
+
+select lower(fristname) from employee;
++------------------+
+| lower(fristname) |
++------------------+
+| tajinder         |
+| sonu             |
+| trisha           |
+| aruna            |
+| ish              |
+| nitish           |
+| ish              |
+| sonu             |
+| nitish           |
+| sonu             |
+| sonu             |
+| aman             |
++------------------+
+
+
+
+****************Using length() function*************************
+
+select length(fristname) from employee;
++-------------------+
+| length(fristname) |
++-------------------+
+|                 8 |
+|                 4 |
+|                 6 |
+|                 5 |
+|                 3 |
+|                 6 |
+|                 3 |
+|                 4 |
+|                 6 |
+|                 4 |
+|                 4 |
+|                 4 |
++-------------------+
+
+
+
+****************Using concat() function*************************
+
+
+mysql>  select concat(fristname,lastname) NAME from employee;
++----------------+
+| NAME           |
++----------------+
+| TajinderSandhu |
+| SonuSaini      |
+| trishaVerma    |
+| Arunakapoor    |
+| Ishkapoor      |
+| nitishkaushal  |
+| Ishkapoor      |
+| SonuSaini      |
+| nitishkaushal  |
+| SonuSaini      |
+| SonuSaini      |
+| amankaur       |
++----------------+
+12 rows in set (0.05 sec)
+
+
+
+****************Using reverse() function*************************
+
+
+mysql>  select reverse(fristname) NAME from employee;
++----------+
+| NAME     |
++----------+
+| rednijaT |
+| unoS     |
+| ahsirt   |
+| anurA    |
+| hsI      |
+| hsitin   |
+| hsI      |
+| unoS     |
+| hsitin   |
+| unoS     |
+| unoS     |
+| nama     |
++----------+
+12 rows in set (0.00 sec)
+
+
+
+****************Using substr() function*************************
+
+
+mysql>  select substr(emailid,1,5) from employee;
++---------------------+
+| substr(emailid,1,5) |
++---------------------+
+| tajin               |
+| sonus               |
+| trish               |
+| aruna               |
+| ishka               |
+| nitis               |
+| ishka               |
+| sonus               |
+| nitis               |
+| sonus               |
+| sonus               |
+| aman@               |
++---------------------+
+12 rows in set (0.00 sec)
+
+
+
+****************Using instr() function*************************
+
+mysql>  select instr(fristname,'a') from employee;
++----------------------+
+| instr(fristname,'a') |
++----------------------+
+|                    2 |
+|                    0 |
+|                    6 |
+|                    1 |
+|                    0 |
+|                    0 |
+|                    0 |
+|                    0 |
+|                    0 |
+
+|                    0 |
+|                    0 |
+|                    1 |
++----------------------+
+12 rows in set (0.00 sec)
+
+
+Transaction Control Language (TCL)
+commit
+Rollback
+save Point
+
+In SQL Commit is true.
+we have set commit as false.Using the following Query.
+mysql> set autocommit=0;
+
+
+rollback is used for undo.
+mysql> rollback;
+
+
+
+Savepoint is used to till which point u want to rollback. 
+
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from employee where id=14;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee;
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype            | deptno | emailid                 |
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD                 |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman           |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD                 |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager            |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS                 |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager            |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS                 |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman           |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager            |   NULL | nitishkaushal@gmail.com |
+| 10 | Sonu      | Saini    |       NULL | salesman           |   NULL | sonusaini@gmail.com     |
+| 11 | Sonu      | Saini    |       NULL | salesman           |   NULL | sonusaini@gmail.com     |
+| 12 | aman      | kaur     | 200000.000 | SD                 |      5 | aman@gmail.com          |
+| 13 | Nisha     | kaushal  |  10000.000 | software developer |     20 | nisha95@gmail.com       |
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+13 rows in set (0.00 sec)
+
+mysql> rollback to b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from employee;
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+| id | FristName | LastName | salary     | jobtype            | deptno | emailid                 |
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+|  1 | Tajinder  | Sandhu   | 200000.000 | SD                 |      1 | tajindersingh@gmail.com |
+|  2 | Sonu      | Saini    |  20000.000 | salesman           |      2 | sonusaini@gmail.com     |
+|  3 | trisha    | Verma    | 200000.000 | SD                 |      1 | trishaverma@gmail.com   |
+|  4 | Aruna     | kapoor   |  50000.000 | manager            |      3 | arunakapoor@gmail.com   |
+|  5 | Ish       | kapoor   |  50000.000 | AS                 |      4 | ishkapoor@gmail.com     |
+|  6 | nitish    | kaushal  | 500000.000 | manager            |      3 | nitishkaushal@gmail.com |
+|  7 | Ish       | kapoor   |  50000.000 | AS                 |      4 | ishkapoor@gmail.com     |
+|  8 | Sonu      | Saini    |  20000.000 | salesman           |   NULL | sonusaini@gmail.com     |
+|  9 | nitish    | kaushal  | 500000.000 | manager            |   NULL | nitishkaushal@gmail.com |
+| 10 | Sonu      | Saini    |       NULL | salesman           |   NULL | sonusaini@gmail.com     |
+| 11 | Sonu      | Saini    |       NULL | salesman           |   NULL | sonusaini@gmail.com     |
+| 12 | aman      | kaur     | 200000.000 | SD                 |      5 | aman@gmail.com          |
+| 13 | Nisha     | kaushal  |  10000.000 | software developer |     20 | nisha95@gmail.com       |
+| 14 | Preet     | kaur     |  10000.000 | software developer |     20 | preetkaur@gmail.com     |
++----+-----------+----------+------------+--------------------+--------+-------------------------+
+14 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
