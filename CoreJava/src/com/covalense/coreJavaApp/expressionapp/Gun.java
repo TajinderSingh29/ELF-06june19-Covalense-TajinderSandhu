@@ -12,9 +12,4 @@ public class Gun {
 		return new Gun(100);
 	}
 
-	@Override
-	public String toString() {
-		return "Gun [bullet=" + bullet + "]";
-	}
-
 }

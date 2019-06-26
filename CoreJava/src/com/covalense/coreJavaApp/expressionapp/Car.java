@@ -11,9 +11,9 @@ public class Car {
 		return new Car(20.00);
 	}
 
-	@Override
-	public String toString() {
-		return "Car [fuelqty=" + fuelqty + "]";
-	}
+	/*
+	 * @Override public String toString() { return "Car [fuelqty=" + fuelqty + "]";
+	 * }
+	 */
 	
 }

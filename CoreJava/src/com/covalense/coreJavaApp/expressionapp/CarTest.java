@@ -9,7 +9,7 @@ public class CarTest {
 	public static void main(String[] args) {
 		Supplier<Car> s= ()-> new Car(15.5);
 		Car g=s.get();
-		log.info(g.getFuelQty()+"");
+		log.info(g.fuelqty+"");
 	}
 
 }
