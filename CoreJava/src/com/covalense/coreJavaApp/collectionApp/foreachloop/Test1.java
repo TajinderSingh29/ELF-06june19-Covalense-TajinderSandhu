@@ -1,4 +1,4 @@
-package com.covalense.corejavaapp.collectionApp.foreachloop;
+package com.covalense.corejavaapp.collectionapp.foreachloop;
 
 import java.util.ArrayList;
 

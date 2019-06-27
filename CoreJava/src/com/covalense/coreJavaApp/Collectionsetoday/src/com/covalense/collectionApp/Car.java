@@ -1,4 +1,4 @@
-package com.covalense.collectionApp;
+package com.covalense.collectionapp;
 
 public class Car implements Comparable<Car> {
 

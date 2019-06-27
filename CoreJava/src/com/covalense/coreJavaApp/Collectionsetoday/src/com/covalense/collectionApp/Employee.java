@@ -1,4 +1,4 @@
-package com.covalense.collectionApp;
+package com.covalense.collectionapp;
 
 public class Employee {
 	String name;
