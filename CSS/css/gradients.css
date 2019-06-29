@@ -1,0 +1,51 @@
+body{
+    /* background-image: radial-gradient(red,blue,yellow,skyblue,brown);
+    background-image: linear-gradient(to right,violet,red,green,skyblue);  */
+    padding: 0px;
+    margin: 0px;
+    
+}
+nav{
+    width: 100%;
+    background-color: black;
+    width: 
+}
+ul{
+    margin: 0px;
+}
+li{
+    display: inline;
+}
+ul li a{
+
+    text-decoration: none;
+    font-size: 25px;
+    color: aliceblue;
+    padding: 30px;
+
+    display: inline-block;
+}
+
+input{
+    width: 250;
+    height: 40px;
+    border-radius: 15;
+    margin: 40;
+}
+
+input:hover{
+    width: 250;
+    height: 40px;
+    border-radius: 15;
+    margin: 40;
+    background-color: rgb(139, 51, 51);
+    border: green;
+    box-shadow: 0 0 4px 8px green;
+}
+#login{
+    width: 100px;
+    padding: 15px;
+    display:block;
+    background-color: lightgreen;
+    
+}
