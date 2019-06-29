@@ -14,7 +14,7 @@ public class TestObject {
 		ObjectOutputStream obj = null;
 		try {
 			fos = new FileOutputStream("hello.txt");
-			obj = new ObjectOutputStream(fos);
+			obj = new ObjectOutputStream(fos);	
 			obj.writeObject(pb);
 			System.out.println("Done");
 		} catch (FileNotFoundException e) {

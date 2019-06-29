@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employee>
+	<emp-id>1</emp-id>
+	<emp-name>saini</emp-name>
+	<emp-age>22</emp-age>
+	<emp-designation>Software Engineer</emp-designation>
+	<emp-email>saini@gmail.com</emp-email>
+	<emp-address>
+		<addr-type>present</addr-type>
+		<address1>#3, 7th cross,3rd main</address1>
+		<address2>sri nagar 5th stage</address2>
+		<landmark>near aces</landmark>
+		<city>bangalore</city>
+		<state>punjab</state>
+		<pincode>145678</pincode>
+	</emp-address>
+	<emp-address>
+		<addr-type>permanent</addr-type>
+		<address1>#3, 7th cross,3rd main</address1>
+		<address2>sri nagar 5th stage</address2>
+		<landmark>near aces</landmark>
+		<city>bangalore</city>
+		<state>punjab</state>
+		<pincode>145678</pincode>
+	</emp-address>
+	<welcome-message>
+	<![CDATA[
+	<html><body><b><u><i>
+	welcome to covalense
+	</i></u></b></body></html>
+	</welcome-message>
+	<welcome-message>
+	]]>
+	&lt;html&gt;&lt;body&gt;&lt;b&gt;&lt;u&gt;&lt;i&gt;
+	welcome to covalense
+	&lt;/i&gt;&lt;/u&gt;&lt;/b&gt;&lt;/body&gt;&lt;/html&gt;
+	</welcome-message>
+	<welcome-message>
+	<html><body><b><u><i>
+	welcome to covalense
+	</i></u></b></body></html>
+	</welcome-message>
+	<person gender="m" gender2="f">
+	</person>
+</employee>
