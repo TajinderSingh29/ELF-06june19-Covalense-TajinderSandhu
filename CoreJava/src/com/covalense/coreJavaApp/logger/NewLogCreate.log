@@ -1,0 +1,24 @@
+Jun 17, 2019 12:45:27 PM com.testYantra.TestRegister main
+SEVERE: Hi i am SEVERE Main Method
+Jun 17, 2019 12:45:27 PM com.testYantra.TestRegister main
+WARNING: Hi i am WARNING Main Method
+Jun 17, 2019 12:45:27 PM com.testYantra.TestRegister main
+INFO: Hi i am INFO Main Method
+Jun 17, 2019 12:45:27 PM com.testYantra.Register connectDB
+SEVERE: Hi i am SEVERE connectDB() in register
+Jun 17, 2019 12:45:27 PM com.testYantra.Register connectDB
+WARNING: Hi i am WARNING connectDB() in register
+Jun 17, 2019 12:45:27 PM com.testYantra.Register connectDB
+INFO: Hi i am INFO connectDB() in register
+Jun 17, 2019 12:45:27 PM com.testYantra.Register store
+SEVERE: Hi i am SEVERE store() in register
+Jun 17, 2019 12:45:27 PM com.testYantra.Register store
+WARNING: Hi i am WARNING store() in register
+Jun 17, 2019 12:45:27 PM com.testYantra.Register store
+INFO: Hi i am INFO store() in register
+Jun 17, 2019 12:46:04 PM com.testYantra.TestRegister main
+SEVERE: Hi i am SEVERE Main Method
+Jun 17, 2019 12:46:04 PM com.testYantra.Register connectDB
+SEVERE: Hi i am SEVERE connectDB() in register
+Jun 17, 2019 12:46:04 PM com.testYantra.Register store
+SEVERE: Hi i am SEVERE store() in register
